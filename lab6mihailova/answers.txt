@@ -1,0 +1,82 @@
+Часть 1.
+1. Команда:echo $$
+   Вывод:3378
+2. Команда:ls -l /proc
+   Вывод:total 0
+dr-xr-xr-x  9 codespace codespace               0 Feb 11 07:35 1
+dr-xr-xr-x  9 codespace codespace               0 Feb 11 07:37 1916
+dr-xr-xr-x  9 root      root                    0 Feb 11 07:37 1952
+dr-xr-xr-x  9 codespace codespace               0 Feb 11 07:37 2101
+dr-xr-xr-x  9 codespace codespace               0 Feb 11 07:37 2110
+dr-xr-xr-x  9 codespace codespace               0 Feb 11 07:37 2133
+...
+3. Команда:cd /proc/$$
+           ls -la
+   Вывод:total 0
+dr-xr-xr-x   9 codespace codespace 0 Feb 11 07:39 .
+dr-xr-xr-x 230 root      root      0 Feb 11 07:35 ..
+-r--r--r--   1 codespace codespace 0 Feb 11 07:50 arch_status
+dr-xr-xr-x   2 codespace codespace 0 Feb 11 07:50 attr
+-rw-r--r--   1 codespace codespace 0 Feb 11 07:50 autogroup
+-r--------   1 codespace codespace 0 Feb 11 07:50 auxv
+-r--r--r--   1 codespace codespace 0 Feb 11 07:40 cgroup
+...
+4. Команда:la -la /proc/$$/fd
+   Вывод:total 0
+dr-x------ 2 codespace codespace  5 Feb 11 07:39 .
+dr-xr-xr-x 9 codespace codespace  0 Feb 11 07:39 ..
+lrwx------ 1 codespace codespace 64 Feb 11 07:39 0 -> /dev/pts/1
+lrwx------ 1 codespace codespace 64 Feb 11 07:39 1 -> /dev/pts/1
+lrwx------ 1 codespace codespace 64 Feb 11 07:39 2 -> /dev/pts/1
+lrwx------ 1 codespace codespace 64 Feb 11 07:39 255 -> /dev/pts/1
+l-wx------ 1 codespace codespace 64 Feb 11 07:39 6 -> /dev/null
+Ответ на вопрос: -fd 0 -стандартный вывод (stdin)
+                -fd 1 -стандартный вывод (stdout)
+                 -fd 2 -стандартный вывод ошибок (stderr)
+Определение: по номерам  дескрипторов (0,1,2) и по пути
+Зачем три первых дескрипторов: чтобы разделить  источники вывода,  обычный вывод и вывод ошибок 
+
+Часть 2.
+1. Команда:echo "Hello"
+   Вывод:Hello
+2. Команда:ls  /nono 2>&1
+   Вывод:ls: cannot access '/nono': No such file or directory
+3. Команда:ls /tmp /nono > output.txt 2> error.txt
+   Вывод: -
+4. Файл output.txt:
+   /tmp:
+   codespaces_logs
+   dockerd.log
+   sshd.log
+   storage_version.txt
+   system-commandline-sentinel-files
+   vscode-git-24079275a3.sock
+   vscode-ipc-a4a6339f-1fa4-4c7d-a728-6cabf7838e39.sock
+   vscode-ipc-c332ae3d-7d88-4900-8bff-b600de8f374c.sock
+   Файл errors.txt:
+   ls: cannot access '/nono': No such file or directory
+Ответ на вопрос: Потоки выводв ошибок можно разделять, потому что они представляют собой разные дескрипторы (1и2).
+
+Часть 3.
+1. Команда:gcc file_demo.c -o file_demo
+           ./file_demo
+   Вывод:Все прошло успешно, вы справились!
+
+Ответ на вопрос: 
+
+Часть 4.
+1. Команда:
+   Вывод:
+
+Ответ на вопрос: 
+
+Часть 5.
+1. Команда:
+   Вывод:
+
+Ответ на вопрос: 
+
+Часть 6.
+1. Команда:
+2. Команда:
+3. Команда:

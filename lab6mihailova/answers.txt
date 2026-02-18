@@ -62,21 +62,24 @@ l-wx------ 1 codespace codespace 64 Feb 11 07:39 6 -> /dev/null
            ./file_demo
    Вывод:Все прошло успешно, вы справились!
 
-Ответ на вопрос: 
+Ответ на вопрос: - rw -(6) для владельца - чтение и запись
+                 - r -(4) для группы - только чтение
+                 - r -(4) дл остальных - только чтение
 
 Часть 4.
-1. Команда:
-   Вывод:
-
-Ответ на вопрос: 
+1. Команда: gcc main.c filelib.c -o app
+            cat log.txt
+   Вывод:Start!
+         Succes
 
 Часть 5.
-1. Команда:
-   Вывод:
-
-Ответ на вопрос: 
+1. Команда: make
+   Вывод: gcc -Wall -Wextra -std=c11 -c main.c
+          gcc -Wall -Wextra -std=c11 -c filelib.c
+          gcc -Wall -Wextra -std=c11 -o app main.o filelib.o
 
 Часть 6.
-1. Команда:
-2. Команда:
-3. Команда:
+1. Команда: ./app > out.txt
+2. Команда: ./app 2> err.txt
+3. Команда: ./app > out.txt 2> err.txt
+4. Команда: ./app > all.txt 2>&1
